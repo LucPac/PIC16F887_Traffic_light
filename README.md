@@ -91,6 +91,10 @@ git clone https://github.com/LucPac/PIC16F887_Traffic_light.git
 
 * Video mô phỏng
 
+![image](https://github.com/user-attachments/assets/8d0833b3-2b20-427d-b9ea-355a20739084)(https://youtu.be/7rp6wgsRKR4)
+
+<br>
+
 ---
 
 <div align="center">
