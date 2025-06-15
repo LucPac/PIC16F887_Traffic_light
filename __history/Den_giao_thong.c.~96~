@@ -1,0 +1,214 @@
+#include<16f887.h>
+#fuses intrc_io
+#use delay (clock=8M)
+
+#define MODE            pin_c0
+
+#define RED14           pin_b0
+#define YELLOW14        pin_b1
+#define GREEN14         pin_b2
+
+#define RED23           pin_b3
+#define YELLOW23        pin_b4
+#define GREEN23         pin_b5
+
+#define TURN_RIGHT      pin_b6
+#define TURN_LEFT14     pin_b7
+#define TURN_LEFT23     pin_e0
+
+#define sec_red14         15 
+#define sec_yellow14      4
+#define sec_green14       11
+
+#define sec_red23         15 //always equal to sec_green14 + sec_yellow14
+#define sec_yellow23      4
+#define sec_green23       6
+
+const unsigned int8     m7d[10] = {0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+unsigned int16          bdn_tmr1=0, sec=0; //bdn: interrupt variable
+int8                    count_14=0, count_23=0;
+int1                    sel=0;//select
+
+#int_timer1
+void interrupt_timer1()
+{
+   bdn_tmr1++;
+   set_timer1(3036);
+   if(sec == sec_green14 + sec_yellow14 + sec_red14) sec=0;
+}
+
+void select_mode()
+{
+   if(input(MODE) == 0)
+   {
+      delay_ms(20);
+      if(input(MODE) == 0)
+      {
+         if(sel < 2)   sel++;
+         else          sel=0;
+         while(input(MODE) == 0);
+      }
+   }
+}
+///////////////////////////////////////////////////////////////////////mode0
+void traffic_light()
+{
+   if(sel == 0)
+   {
+      if (bdn_tmr1 == 4) 
+      {
+         bdn_tmr1 = 0;
+         sec++;
+   
+         if (sec <= sec_green14) //GREEN14, RED23
+         {
+            output_high(GREEN14);      output_low(YELLOW14);     output_low(RED14);     output_low(TURN_LEFT14);
+            output_low(GREEN23);       output_low(YELLOW23);     output_high(RED23);    output_low(TURN_LEFT23);  
+   
+            count_14 = sec_green14 - sec;
+            count_23 = sec_red23 - sec;
+         }//sec=10
+         else if (sec <= sec_green14 + sec_yellow14) //YELLOW14, RED23
+         {
+            output_low(GREEN14);       output_high(YELLOW14);    output_low(RED14);     output_low(TURN_LEFT14);
+            output_low(GREEN23);       output_low(YELLOW23);     output_high(RED23);    output_low(TURN_LEFT23);  
+   
+            count_14 = sec_green14 + sec_yellow14 - sec;
+            count_23 = sec_red23 - sec;
+         }//sec=12
+         else if (sec <= sec_green14 + sec_yellow14 + sec_green23) //RED14, GREEN23 + TURN_LEFT23
+         {
+            output_low(GREEN14);       output_low(YELLOW14);     output_high(RED14);    output_low(TURN_LEFT14);
+            output_high(GREEN23);      output_low(YELLOW23);     output_low(RED23);     output_high(TURN_LEFT23);  
+   
+            count_14 = sec_green14 + sec_yellow14 + sec_red14 - sec;
+            count_23 = sec_green14 + sec_yellow14 + sec_green23 - sec;
+         }//sec=18
+         else if (sec <= sec_green14 + sec_yellow14 + sec_green23 + sec_yellow23) //RED14, YELLOW23
+         {
+            output_low(GREEN14);       output_low(YELLOW14);     output_high(RED14);    output_low(TURN_LEFT14);
+            output_low(GREEN23);       output_high(YELLOW23);    output_low(RED23);     output_low(TURN_LEFT23);  
+   
+            count_14 = sec_green14 + sec_yellow14 + sec_red14 - sec;
+            count_23 = sec_green14 + sec_yellow14 + sec_green23 + sec_yellow23 - sec;
+         }//sec=20
+         else if (sec <= sec_green14 + sec_yellow14 + sec_red14) //RED14, RED23, TURN_LEFT14
+         {
+            output_low(GREEN14);       output_low(YELLOW14);     output_high(RED14);    output_high(TURN_LEFT14);
+            output_low(GREEN23);       output_low(YELLOW23);     output_high(RED23);    output_low(TURN_LEFT23);  
+   
+            count_14 = sec_green14 + sec_yellow14 + sec_red14 - sec;
+            count_23 = sec_green14 + sec_yellow14 + sec_red14 + sec_red23 - sec;
+         }
+      }
+   }
+}
+
+//7seg area 1
+void led7seg_1(int8 count, int1 ctrl1_0, int1 ctrl1_1)
+{
+   int8 tens = count / 10;//hang chuc
+   int8 ones = count % 10;// hang don vi
+
+   output_a(m7d[tens]);
+   output_low(ctrl1_0);
+   delay_ms(1);
+   output_high(ctrl1_0);
+
+   output_a(m7d[ones]);
+   output_low(ctrl1_1);
+   delay_ms(1);
+   output_high(ctrl1_1);
+}
+
+//7seg area 2
+void led7seg_2(int8 count, int1 ctrl2_0, int1 ctrl2_1)
+{
+   int8 tens = count / 10;//hang chuc
+   int8 ones = count % 10;// hang don vi
+
+   output_a(m7d[tens]);
+   output_low(ctrl2_0);
+   delay_ms(1);
+   output_high(ctrl2_0);
+
+   output_a(m7d[ones]);
+   output_low(ctrl2_1);
+   delay_ms(1);
+   output_high(ctrl2_1);
+}
+
+//7seg area 3
+void led7seg_3(int8 count, int1 ctrl3_0, int1 ctrl3_1)
+{
+   int8 tens = count / 10;//hang chuc
+   int8 ones = count % 10;// hang don vi
+
+   output_a(m7d[tens]);
+   output_low(ctrl3_0);
+   delay_ms(1);
+   output_high(ctrl3_0);
+
+   output_a(m7d[ones]);
+   output_low(ctrl3_1);
+   delay_ms(1);
+   output_high(ctrl3_1);
+}
+
+//7seg area 4
+void led7seg_4(int8 count, int1 ctrl4_0, int1 ctrl4_1)
+{
+   int8 tens = count / 10;//hang chuc
+   int8 ones = count % 10;// hang don vi
+
+   output_a(m7d[tens]);
+   output_low(ctrl4_0);
+   delay_ms(1);
+   output_high(ctrl4_0);
+
+   output_a(m7d[ones]);
+   output_low(ctrl4_1);
+   delay_ms(1);
+   output_high(ctrl4_1);
+}
+
+//////////////////////////////////////////////////////////////////////mode1
+void adjust_mode()
+{
+   if(sel == 1)
+   {
+      output_a(0xff);//turn off 7seg
+      output_b(0);//turn off led
+   }
+}
+
+/////////////////////////////////////////////////////////////////////main
+void main()
+{
+   set_tris_a(0);//7seg
+   set_tris_b(0);//led
+   set_tris_d(0);//control
+   set_tris_e(0);//led
+   set_tris_c(0xff);//button
+   
+   //timing 250ms
+   setup_timer_1(t1_internal | t1_div_by_8);
+   set_timer1(3036);
+   
+   enable_interrupts(int_timer1);
+   enable_interrupts(global);
+   
+   //always allow trun right
+   output_high(TURN_RIGHT);
+   
+   while(true)
+   {
+      select_mode();
+      traffic_light();
+      led7seg_1(count_14,pin_d0,pin_d1);
+      led7seg_4(count_14,pin_d6,pin_d7);
+      led7seg_2(count_23,pin_d2,pin_d3);
+      led7seg_3(count_23,pin_d4,pin_d5);
+      adjust_mode();
+   }
+}

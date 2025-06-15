@@ -1,0 +1,151 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027-028 bdn_tmr1
+029-02A sec
+02B     count_14
+02C     count_23
+02D     sel
+02E     light
+02F.0   right_14
+02F.1   left_14
+02F.2   right_23
+02F.3   left_23
+030     @TRIS_C
+031     led7seg_2.count
+031     led7seg_1.count
+031     led7seg_3.count
+031     led7seg_4.count
+031     select_mode.@SCRATCH1
+031     adjust_mode.@SCRATCH1
+032     led7seg_1.ctrl1_0
+032     led7seg_4.ctrl4_0
+032     led7seg_3.ctrl3_0
+032     led7seg_2.ctrl2_0
+033     led7seg_4.ctrl4_1
+033     led7seg_1.ctrl1_1
+033     led7seg_3.ctrl3_1
+033     led7seg_2.ctrl2_1
+034     led7seg_3.tens
+034     led7seg_4.tens
+034     led7seg_2.tens
+034     led7seg_1.tens
+035     led7seg_3.ones
+035     led7seg_2.ones
+035     led7seg_1.ones
+035     led7seg_4.ones
+036     @delay_ms1.P1
+036     @DIV88.P2
+036     @WRITEBITA.P3
+036     led7seg_1.@SCRATCH1
+036     led7seg_2.@SCRATCH1
+036     led7seg_3.@SCRATCH1
+036     led7seg_4.@SCRATCH1
+037     @DIV88.P1
+037     @WRITEBITA.P2
+038-039 @WRITEBITA.P1
+038     @DIV88.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07F     @INTERRUPT_AREA
+0FF     @INTERRUPT_AREA
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+17F     @INTERRUPT_AREA
+1FF     @INTERRUPT_AREA
+27F     @INTERRUPT_AREA
+2FF     @INTERRUPT_AREA
+37F     @INTERRUPT_AREA
+3FF     @INTERRUPT_AREA
+47F     @INTERRUPT_AREA
+4FF     @INTERRUPT_AREA
+57F     @INTERRUPT_AREA
+5FF     @INTERRUPT_AREA
+67F     @INTERRUPT_AREA
+6FF     @INTERRUPT_AREA
+77F     @INTERRUPT_AREA
+7FF     @INTERRUPT_AREA
+87F     @INTERRUPT_AREA
+8FF     @INTERRUPT_AREA
+97F     @INTERRUPT_AREA
+9FF     @INTERRUPT_AREA
+A7F     @INTERRUPT_AREA
+AFF     @INTERRUPT_AREA
+B7F     @INTERRUPT_AREA
+BFF     @INTERRUPT_AREA
+C7F     @INTERRUPT_AREA
+CFF     @INTERRUPT_AREA
+D7F     @INTERRUPT_AREA
+DFF     @INTERRUPT_AREA
+E7F     @INTERRUPT_AREA
+EFF     @INTERRUPT_AREA
+F7F     @INTERRUPT_AREA
+FFF     @INTERRUPT_AREA
+
+ROM Allocation:
+000031  m7d.call
+000035  m7d.data
+00003F  interrupt_timer1
+000054  @delay_ms1
+000068  select_mode
+0000C2  traffic_light
+00022E  @DIV88
+000243  @WRITEBITA
+000263  led7seg_1
+0002C0  led7seg_4
+00031D  led7seg_2
+00037A  led7seg_3
+0003D7  adjust_mode
+00052D  yellow_toggle
+000543  MAIN
+000543  @cinit1
+000568  @cinit2
+
+Project Directory:
+    E:\University\Nam 3\2024_2025_HK2\PIC16f887_Traffic_light\
+
+Project Files:
+    Traffic_light.c                                         [15-Jun-25 09:55  CRC=3061222C]
+    C:\Program Files (x86)\PICC\Devices\16f887.h            [12-Nov-13 14:35  CRC=6CB1A611]
+
+Source signature=09C46E4E
+
+Units:
+    Traffic_light (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Traffic_light.xsym
+    Errors:      Traffic_light.err
+    Ext Symbols: Traffic_light.esym
+    INHX8:       Traffic_light.hex
+    Symbols:     Traffic_light.sym
+    List:        Traffic_light.lst
+    Debug/COFF:  Traffic_light.cof
+    Project:     Traffic_light.ccspjt
+    Call Tree:   Traffic_light.tre
+    Statistics:  Traffic_light.STA
