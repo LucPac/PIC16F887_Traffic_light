@@ -15,7 +15,8 @@
     <a href="#🚀-tổng-quan">Tổng quan</a> •
     <a href="#📁-cấu-trúc-dự-án">Cấu trúc dự án</a> •
     <a href="#🛠️-hướng-dẫn-sử-dụng">Hướng dẫn sử dụng</a> •
-    <a href="#⚙️-chi-tiết-chức-năng">Chi tiết chức năng</a>
+    <a href="#⚙️-chi-tiết-chức-năng">Chi tiết chức năng</a> •
+    <a href="#🚩-sản-phẩm-thực-tế ">Sản phẩm thực tế</a>
   </p>
 
 ---
@@ -48,17 +49,6 @@ Den_Giao_Thong_Nga_Tu/
 ```
 <br>
 
-## ⚙️ Chi tiết chức năng
-
-```bash
-| Chế độ               | Mô tả                                                                      |
-| -------------------- | -------------------------------------------------------------------------- |
-| 1 - Tự động          | Đèn mỗi hướng luân phiên chuyển: đỏ → xanh → vàng. Có thời gian định sẵn.  |
-| 2 - Điều khiển tay   | Tất cả đèn tắt. Người dùng nhấn nút riêng biệt để bật/tắt đèn.             |
-| 3 - Cảnh báo ban đêm | Tất cả các đèn vàng ở 4 hướng chớp tắt liên tục.                           |
-```
-<br>
-
 ## 🛠️ Hướng dẫn Sử dụng
 
 ### 🔧 Phần mềm cần thiết
@@ -83,6 +73,18 @@ git clone https://github.com/LucPac/PIC16F887_Traffic_light.git
 
 <br>
 
+## ⚙️ Chi tiết chức năng
+
+```bash
+| Chế độ               | Mô tả                                                                      |
+| -------------------- | -------------------------------------------------------------------------- |
+| 1 - Tự động          | Đèn mỗi hướng luân phiên chuyển: đỏ → xanh → vàng. Có thời gian định sẵn.  |
+| 2 - Điều khiển tay   | Tất cả đèn tắt. Người dùng nhấn nút riêng biệt để bật/tắt đèn.             |
+| 3 - Cảnh báo ban đêm | Tất cả các đèn vàng ở 4 hướng chớp tắt liên tục.                           |
+```
+
+<br>
+
 ## 🚩 Sản phẩm thực tế  
 
 * Hình ảnh mô phỏng
@@ -91,7 +93,7 @@ git clone https://github.com/LucPac/PIC16F887_Traffic_light.git
 
 * Video mô phỏng
 
-![image](https://github.com/user-attachments/assets/8d0833b3-2b20-427d-b9ea-355a20739084)(https://youtu.be/7rp6wgsRKR4)
+[![image](https://github.com/user-attachments/assets/8d0833b3-2b20-427d-b9ea-355a20739084)](https://youtu.be/7rp6wgsRKR4)
 
 <br>
 
