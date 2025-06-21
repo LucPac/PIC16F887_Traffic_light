@@ -93,7 +93,7 @@ git clone https://github.com/LucPac/PIC16F887_Traffic_light.git
 
 * PCB
 
-![image](https://github.com/user-attachments/assets/47e8e72c-8fd1-4aa1-a1c1-7f715f30205c)
+![image](https://github.com/user-attachments/assets/19478ecf-12cb-4888-a011-ff16d0910410)
 
 * Video mô phỏng
 
