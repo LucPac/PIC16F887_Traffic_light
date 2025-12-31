@@ -1,22 +1,22 @@
 <div align="center">
-  <h1>🚦 Đèn Giao Thông Ngã Tư - PIC16F887 🚦</h1>
-  <p>✨ Dự án mô phỏng hệ thống đèn giao thông ngã tư thông minh sử dụng vi điều khiển <strong>PIC16F887</strong>.</p>
-  <p>Hỗ trợ 3 chế độ hoạt động linh hoạt: tự động, điều khiển tay và cảnh báo ban đêm.</p>
+  <h1>🚦 Traffic Light System - PIC16F887 🚦</h1>
+  <p>✨ A traffic light system simulation for a four-way intersection using <strong>PIC16F887</strong> microcontroller.</p>
+  <p>Supports 3 flexible operating modes: automatic, manual control, and night warning.</p>
 
   <p>
-    <img src="https://img.shields.io/badge/PIC16F887-Vi%20x%E1%BB%AD%20l%C3%BD-brightgreen?style=for-the-badge&logo=microchip&logoColor=white" alt="PIC16F887 Badge">
-    <img src="https://img.shields.io/badge/Ng%C3%B4n%20ng%E1%BB%AF-CCS%20C-blue?style=for-the-badge&logo=c&logoColor=white" alt="CCS C Badge">
-    <img src="https://img.shields.io/badge/M%C3%B4%20ph%E1%BB%8Fng-Proteus-orange?style=for-the-badge&logo=proteus&logoColor=white" alt="Proteus Badge">
+    <img src="https://img.shields.io/badge/PIC16F887-Microcontroller-brightgreen?style=for-the-badge&logo=microchip&logoColor=white" alt="PIC16F887 Badge">
+    <img src="https://img.shields.io/badge/Language-CCS%20C-blue?style=for-the-badge&logo=c&logoColor=white" alt="CCS C Badge">
+    <img src="https://img.shields.io/badge/Simulation-Proteus-orange?style=for-the-badge&logo=proteus&logoColor=white" alt="Proteus Badge">
   </p>
 
 ---
 
   <p>
-    <a href="#🚀-tổng-quan">Tổng quan</a> •
-    <a href="#📁-cấu-trúc-dự-án">Cấu trúc dự án</a> •
-    <a href="#🛠️-hướng-dẫn-sử-dụng">Hướng dẫn sử dụng</a> •
-    <a href="#⚙️-chi-tiết-chức-năng">Chi tiết chức năng</a> •
-    <a href="#🚩-sản-phẩm-thực-tế ">Sản phẩm thực tế</a>
+    <a href="#🚀-overview">Overview</a> •
+    <a href="#📁-project-structure">Project Structure</a> •
+    <a href="#🛠️-how-to-use">How to Use</a> •
+    <a href="#⚙️-features">Features</a> •
+    <a href="#🚩-real-product">Real Product</a>
   </p>
 
 ---
@@ -24,68 +24,68 @@
 
 <br>
 
-## 🚀 Tổng quan
+## 🚀 Overview
 
-Đây là mô phỏng hệ thống **đèn giao thông tại một ngã tư** sử dụng **vi điều khiển PIC16F887**. Hệ thống hỗ trợ **3 chế độ hoạt động** linh hoạt được lựa chọn thông qua nút nhấn hoặc công tắc.
+This is a **traffic light system simulation for a four-way intersection** using **PIC16F887 microcontroller**. The system supports **3 flexible operating modes** that can be selected using buttons or switches.
 
-Mỗi chế độ đều mô phỏng chính xác cách vận hành của đèn giao thông thực tế:
+Each mode accurately simulates how real traffic lights work:
 
-1. **Chế độ 1 - Tự động:** Đèn đỏ, vàng, xanh luân phiên theo chu kỳ.
-2. **Chế độ 2 - Điều khiển bằng tay:** Người dùng dùng nút nhấn để bật đèn thủ công.
-3. **Chế độ 3 - Cảnh báo ban đêm:** 4 đèn vàng chớp tắt liên tục để cảnh báo.
+1. **Mode 1 - Automatic:** Red, yellow, and green lights cycle in sequence.
+2. **Mode 2 - Manual Control:** Users press buttons to turn lights on and off manually.
+3. **Mode 3 - Night Warning:** All 4 yellow lights blink continuously as a warning.
 
 <br>
 
-## 📁 Cấu trúc Dự án
+## 📁 Project Structure
 
 ```bash
 Den_Giao_Thong_Nga_Tu/
 │
-├── Traffic_light.c          # Mã nguồn CCS C
+├── Traffic_light.c          # CCS C source code
 │          
-├── Traffic_light.pdsprj     # File mô phỏng Proteus
+├── Traffic_light.pdsprj     # Proteus simulation file
 │  
-└── README.md                # Mô tả dự án
+└── README.md                # Project description
 ```
 <br>
 
-## 🛠️ Hướng dẫn Sử dụng
+## 🛠️ How to Use
 
-### 🔧 Phần mềm cần thiết
+### 🔧 Required Software
 
-1. CCS C Compiler – Biên dịch mã nguồn .c
+1. CCS C Compiler – To compile the .c source code
 
-2. Proteus Design Suite – Mô phỏng mạch điện .pdsprj
+2. Proteus Design Suite – To simulate the .pdsprj circuit
 
-### 📥 Các bước thực hiện
+### 📥 Steps
 
-1. Tải về repo:
+1. Download the repository:
 
 ```bash
 git clone https://github.com/LucPac/PIC16F887_Traffic_light.git
 ```
 
-2. Mở file **Traffic_light.c** bằng CCS C để xem, sửa hoặc biên dịch mã nguồn.
+2. Open **Traffic_light.c** file with CCS C to view, edit, or compile the source code.
 
-3. Mở file **Traffic_light.pdsprj** bằng Proteus để mô phỏng mạch.
+3. Open **Traffic_light.pdsprj** file with Proteus to simulate the circuit.
 
-4. Chọn chế độ và quan sát sự thay đổi trạng thái đèn trên Proteus.
+4. Select a mode and observe the traffic light changes in Proteus.
 
 <br>
 
-## ⚙️ Chi tiết chức năng
+## ⚙️ Features
 
 ```bash
-| Chế độ               | Mô tả                                                                      |
+| Mode                 | Description                                                                |
 | -------------------- | -------------------------------------------------------------------------- |
-| 1 - Tự động          | Đèn mỗi hướng luân phiên chuyển: đỏ → xanh → vàng. Có thời gian định sẵn.  |
-| 2 - Điều khiển tay   | Tất cả đèn tắt. Người dùng nhấn nút riêng biệt để bật/tắt đèn.             |
-| 3 - Cảnh báo ban đêm | Tất cả các đèn vàng ở 4 hướng chớp tắt liên tục.                           |
+| 1 - Automatic        | Lights cycle through: red → green → yellow. Each has a preset time.       |
+| 2 - Manual Control   | All lights are off. Users press individual buttons to turn lights on/off. |
+| 3 - Night Warning    | All 4 yellow lights in all directions blink continuously.                 |
 ```
 
 <br>
 
-## 🚩 Sản phẩm thực tế  
+## 🚩 Real Product  
 
 * PCB
 
@@ -93,11 +93,11 @@ git clone https://github.com/LucPac/PIC16F887_Traffic_light.git
 
 ![image](https://github.com/user-attachments/assets/a02374b4-9962-466d-985d-026dc2323736)
 
-* Hình ảnh mô phỏng
+* Simulation Screenshot
 
 ![Screenshot (87)](https://github.com/user-attachments/assets/ab239cb8-e1cf-4113-8b71-a299691e1804)
 
-* Video mô phỏng
+* Simulation Video
 
 [![image](https://github.com/user-attachments/assets/8d0833b3-2b20-427d-b9ea-355a20739084)](https://youtu.be/7rp6wgsRKR4)
 
@@ -107,5 +107,5 @@ git clone https://github.com/LucPac/PIC16F887_Traffic_light.git
 
 <div align="center">
   <br>
-  <p>Cảm ơn bạn đã ghé thăm! Hy vọng repo này hữu ích cho việc học tập và nghiên cứu của bạn. 😊</p>
+  <p>Thank you for visiting! I hope this repository is helpful for your learning and research. 😊</p>
   </div>
