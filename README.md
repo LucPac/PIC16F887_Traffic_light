@@ -93,9 +93,6 @@ git clone https://github.com/LucPac/PIC16F887_Traffic_light.git
 
 ![image](https://github.com/user-attachments/assets/a02374b4-9962-466d-985d-026dc2323736)
 
-* Simulation Screenshot
-
-![Screenshot (87)](https://github.com/user-attachments/assets/ab239cb8-e1cf-4113-8b71-a299691e1804)
 
 * Simulation Video
 
